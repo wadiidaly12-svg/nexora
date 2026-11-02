@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXORA | Discover Creators</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#090909;color:#fff;font-family:Arial,sans-serif}
+header{padding:20px 6%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #29220e}
+.logo{color:#d6ad55;font-size:27px;font-weight:bold;letter-spacing:3px}
+nav a{color:#ddd;text-decoration:none;margin:0 9px;font-size:14px}
+.hero{text-align:center;padding:75px 20px 55px;background:linear-gradient(135deg,#17130a,#090909)}
+.hero h1{font-size:42px;margin:0 0 15px}
+.gold{color:#d6ad55}
+.hero p{color:#aaa;line-height:1.7}
+.search{margin-top:20px;padding:14px;width:90%;max-width:430px;border:1px solid #b58b37;border-radius:30px;background:#111;color:white}
+section{padding:35px 6%}
+h2{color:#d6ad55}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:18px}
+.card{background:#151515;border:1px solid #302817;border-radius:13px;overflow:hidden;text-align:center;padding-bottom:16px}
+.cover{height:115px;background:linear-gradient(135deg,#493819,#17120a)}
+.avatar{width:65px;height:65px;border-radius:50%;background:#292318;border:3px solid #d6ad55;margin:-32px auto 10px;position:relative}
+.card h3{margin:7px}
+.card p{color:#aaa;font-size:13px}
+.follow{background:#c69b43;color:#080808;border:0;padding:9px 19px;border-radius:20px;font-weight:bold}
+footer{text-align:center;padding:25px;color:#888;border-top:1px solid #29220e;font-size:13px}
+@media(max-width:600px){header{flex-direction:column;gap:15px}nav a{margin:0 5px;font-size:12px}.hero h1{font-size:32px}}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">Ⓝ NEXORA</div>
+<nav>
+<a href="#">Home</a>
+<a href="#discover">Discover</a>
+<a href="#top">Top Creators</a>
+<a href="#about">About</a>
+</nav>
+</header>
+
+<div class="hero">
+<h1>Discover <span class="gold">Creators</span></h1>
+<p>Explore talent. Discover creativity. Connect with the world.</p>
+<input class="search" type="search" placeholder="Search creators...">
+</div>
+
+<section id="discover">
+<h2>✨ Discover Creators</h2>
+<div class="grid">
+<div class="card"><div class="cover"></div><div class="avatar"></div><h3>Creator One</h3><p>12.5K Followers</p><button class="follow">View Profile</button></div>
+<div class="card"><div class="cover"></div><div class="avatar"></div><h3>Creator Two</h3><p>8.2K Followers</p><button class="follow">View Profile</button></div>
+<div class="card"><div class="cover"></div><div class="avatar"></div><h3>Creator Three</h3><p>5.7K Followers</p><button class="follow">View Profile</button></div>
+</div>
+</section>
+
+<section id="top">
+<h2>🏆 Top Creators</h2>
+<p style="color:#aaa">Discover the most popular creators on NEXORA.</p>
+</section>
+
+<section id="about">
+<h2>About NEXORA</h2>
+<p style="color:#aaa;line-height:1.8">NEXORA is a creator discovery platform designed to connect people with inspiring talent and creative communities.</p>
+</section>
+
+<footer>© 2026 NEXORA. All rights reserved.</footer>
+</body>
+  </html>
