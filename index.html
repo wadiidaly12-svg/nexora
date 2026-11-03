@@ -10,8 +10,8 @@
 :root{--gold:#d6ad55;--bg:#080808;--panel:#141414;--muted:#aaa}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:#fff;font-family:Arial,sans-serif}
-header{height:75px;padding:0 7%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #292929;position:sticky;top:0;background:#090909;z-index:5}
-.logo{font-size:27px;font-weight:900;letter-spacing:3px;color:var(--gold)}
+header{min-height:75px;padding:12px 7%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #292929;position:sticky;top:0;background:#090909;z-index:5}
+.logo{font-size:27px;font-weight:900;letter-spacing:3px;color:var(--gold);text-decoration:none}
 nav a{color:#ddd;text-decoration:none;margin-left:22px;font-size:14px}
 nav a:hover{color:var(--gold)}
 .hero{text-align:center;padding:75px 18px 55px;background:radial-gradient(ellipse at top,#332713 0%,#111 48%,#080808 80%)}
@@ -20,13 +20,13 @@ nav a:hover{color:var(--gold)}
 .hero p{color:#bbb;line-height:1.7;max-width:600px;margin:0 auto 25px}
 .search{max-width:480px;margin:auto;display:flex;background:#1a1a1a;border:1px solid #574522;border-radius:30px;padding:5px}
 .search input{flex:1;min-width:0;background:none;border:0;outline:0;color:white;padding:12px}
-.search button{background:var(--gold);border:0;border-radius:25px;padding:0 20px;font-weight:bold}
+.search button{background:var(--gold);border:0;border-radius:25px;padding:0 20px;font-weight:bold;cursor:pointer}
 .section{padding:35px 7%;max-width:1250px;margin:auto}
 .section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
 .section-title h2{font-size:23px;margin:0}
 .section-title span{color:var(--gold);font-size:13px}
 .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
-.filters button{background:#171717;color:#ddd;border:1px solid #333;padding:9px 17px;border-radius:22px}
+.filters button{background:#171717;color:#ddd;border:1px solid #333;padding:9px 17px;border-radius:22px;cursor:pointer}
 .filters button.active,.filters button:hover{background:var(--gold);color:#111;border-color:var(--gold)}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .creator{background:var(--panel);border:1px solid #292929;border-radius:13px;overflow:hidden;transition:.2s}
@@ -43,18 +43,28 @@ nav a:hover{color:var(--gold)}
 .empty{display:none;color:#aaa;text-align:center;padding:30px}
 footer{text-align:center;border-top:1px solid #292929;padding:30px 15px;color:#999;font-size:13px;margin-top:40px}
 footer strong{color:var(--gold)}
-@media(max-width:750px){header{padding:0 5%;height:auto;min-height:65px;flex-wrap:wrap}nav{width:100%;display:flex;justify-content:space-between;padding:0 0 13px}nav a{margin:0;font-size:12px}.grid{grid-template-columns:repeat(2,1fr)}.section{padding:28px 5%}}
-@media(max-width:450px){.grid{grid-template-columns:1fr}.hero{padding-top:55px}}
+@media(max-width:750px){
+header{padding:12px 5%;flex-wrap:wrap;gap:12px}
+nav{width:100%;display:flex;justify-content:space-between;gap:8px}
+nav a{margin:0;font-size:12px}
+.grid{grid-template-columns:repeat(2,1fr)}
+.section{padding:28px 5%}
+}
+@media(max-width:450px){
+.grid{grid-template-columns:1fr}
+.hero{padding-top:55px}
+}
 </style>
 </head>
 <body>
+
 <header>
-<div class="logo">NEXORA</div>
+<a class="logo" href="index.html">NEXORA</a>
 <nav>
 <a href="#home">Home</a>
 <a href="#discover">Discover</a>
 <a href="#top">Top Creators</a>
-<a href="creator-one.html">View Profile</a>
+<a href="creator-one.html">Alex Morgan</a>
 </nav>
 </header>
 
@@ -72,12 +82,14 @@ footer strong{color:var(--gold)}
 <h2>Discover Creators</h2>
 <span>EXPLORE THE COMMUNITY</span>
 </div>
+
 <div class="filters">
 <button class="active" onclick="filterCreators('all',this)">All</button>
 <button onclick="filterCreators('art',this)">Art</button>
 <button onclick="filterCreators('fashion',this)">Fashion</button>
 <button onclick="filterCreators('lifestyle',this)">Lifestyle</button>
 </div>
+
 <div class="grid" id="creatorGrid">
 
 <article class="creator" data-category="art" data-name="alex morgan">
@@ -87,8 +99,9 @@ footer strong{color:var(--gold)}
 <h3>Alex Morgan ✦</h3>
 <p>Digital artist sharing creative ideas and visual stories.</p>
 <div class="stats"><span><b>125K</b> Followers</span><span><b>48</b> Posts</span></div>
-<a class="view" href="#about">View Profile</a>
-</div></article>
+<a class="view" href="creator-one.html">View Profile</a>
+</div>
+</article>
 
 <article class="creator" data-category="fashion" data-name="sophia rose">
 <div class="cover"></div>
@@ -97,8 +110,9 @@ footer strong{color:var(--gold)}
 <h3>Sophia Rose ✦</h3>
 <p>Fashion inspiration, style and everyday elegance.</p>
 <div class="stats"><span><b>98K</b> Followers</span><span><b>62</b> Posts</span></div>
-<a class="view" href="#about">View Profile</a>
-</div></article>
+<a class="view" href="creator-one.html">View Profile</a>
+</div>
+</article>
 
 <article class="creator" data-category="lifestyle" data-name="daniel white">
 <div class="cover"></div>
@@ -107,8 +121,9 @@ footer strong{color:var(--gold)}
 <h3>Daniel White ✦</h3>
 <p>Travel, lifestyle and moments worth sharing.</p>
 <div class="stats"><span><b>76K</b> Followers</span><span><b>35</b> Posts</span></div>
-<a class="view" href="#about">View Profile</a>
-</div></article>
+<a class="view" href="creator-one.html">View Profile</a>
+</div>
+</article>
 
 </div>
 <div class="empty" id="emptyMessage">No creators found.</div>
@@ -153,5 +168,6 @@ document.getElementById('searchInput').addEventListener('keydown',e=>{
 if(e.key==='Enter')searchCreators();
 });
 </script>
+
 </body>
 </html>
