@@ -2,522 +2,477 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#080808">
-  <title>NEXORA | Discover Creators</title>
-  <meta name="description" content="Discover talented creators, explore their content and find your next inspiration on NEXORA.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXORA | Discover Creators</title>
+<meta name="description" content="Discover, explore and rank creators on NEXORA. Fashion models, artists, lifestyle creators and more.">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #080808;
-      color: #fff;
-    }
+body {
+  background: #080808;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+header {
+  padding: 22px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #292929;
+}
 
-    header {
-      height: 78px;
-      padding: 0 7%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid #252015;
-      background: #0b0b0b;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+.logo {
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  color: #d6ad55;
+}
 
-    .logo {
-      color: #d6ad55;
-      font-size: 27px;
-      font-weight: 900;
-      letter-spacing: 3px;
-    }
+.logo span {
+  color: white;
+}
 
-    nav {
-      display: flex;
-      gap: 28px;
-      align-items: center;
-    }
+nav a {
+  color: #ccc;
+  text-decoration: none;
+  margin-left: 22px;
+  font-size: 14px;
+}
 
-    nav a {
-      color: #bbb;
-      font-size: 14px;
-      transition: .3s;
-    }
+nav a:hover {
+  color: #d6ad55;
+}
 
-    nav a:hover {
-      color: #d6ad55;
-    }
+.hero {
+  text-align: center;
+  padding: 75px 20px 55px;
+  background: radial-gradient(ellipse at top, #29200e, #080808 70%);
+}
 
-    .hero {
-      text-align: center;
-      padding: 95px 20px 75px;
-      background: radial-gradient(ellipse at top, #29200e 0%, #080808 65%);
-    }
+.hero h1 {
+  font-size: 43px;
+  margin-bottom: 15px;
+}
 
-    .hero-tag {
-      color: #d6ad55;
-      font-size: 12px;
-      letter-spacing: 4px;
-      margin-bottom: 20px;
-    }
+.hero h1 span {
+  color: #d6ad55;
+}
 
-    .hero h1 {
-      font-size: clamp(38px, 7vw, 65px);
-      margin-bottom: 18px;
-    }
+.hero p {
+  color: #aaa;
+  font-size: 16px;
+  line-height: 1.7;
+  max-width: 650px;
+  margin: auto;
+}
 
-    .hero h1 span {
-      color: #d6ad55;
-    }
+.search-box {
+  margin: 28px auto 0;
+  max-width: 500px;
+}
 
-    .hero p {
-      color: #aaa;
-      max-width: 570px;
-      line-height: 1.7;
-      margin: auto;
-    }
+.search-box input {
+  width: 100%;
+  padding: 15px 20px;
+  border-radius: 30px;
+  border: 1px solid #8d7136;
+  background: #151515;
+  color: white;
+  outline: none;
+  font-size: 15px;
+}
 
-    .discover-btn {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 14px 30px;
-      background: #d6ad55;
-      color: #080808;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: .3s;
-    }
+.section {
+  padding: 35px 7%;
+}
 
-    .discover-btn:hover {
-      background: #f0cc7c;
-      transform: translateY(-2px);
-    }
+.section-title {
+  font-size: 25px;
+  margin-bottom: 22px;
+}
 
-    .container {
-      width: 86%;
-      max-width: 1200px;
-      margin: auto;
-      padding: 55px 0 80px;
-    }
+.section-title span {
+  color: #d6ad55;
+}
 
-    .section-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 25px;
-      flex-wrap: wrap;
-    }
+.filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
 
-    .section-heading h2 {
-      font-size: 27px;
-    }
+.filter-btn {
+  padding: 10px 17px;
+  border-radius: 25px;
+  border: 1px solid #444;
+  background: #151515;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.3s;
+}
 
-    .section-heading h2 span {
-      color: #d6ad55;
-    }
+.filter-btn:hover,
+.filter-btn.active {
+  background: #d6ad55;
+  color: #080808;
+  border-color: #d6ad55;
+  font-weight: bold;
+}
 
-    .search-box {
-      width: 100%;
-      max-width: 350px;
-      padding: 13px 16px;
-      background: #151515;
-      border: 1px solid #393020;
-      border-radius: 6px;
-      color: white;
-      outline: none;
-    }
+.creators-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+}
 
-    .search-box:focus {
-      border-color: #d6ad55;
-    }
+.creator-card {
+  background: #141414;
+  border: 1px solid #292929;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: 0.3s;
+}
 
-    .filters {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 30px;
-    }
+.creator-card:hover {
+  transform: translateY(-6px);
+  border-color: #d6ad55;
+}
 
-    .filter-btn {
-      background: #151515;
-      border: 1px solid #333;
-      color: #aaa;
-      padding: 9px 18px;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: .3s;
-    }
+.cover {
+  height: 135px;
+  background: linear-gradient(135deg, #4b3816, #17120a, #292929);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 45px;
+  color: #d6ad55;
+}
 
-    .filter-btn.active,
-    .filter-btn:hover {
-      background: #d6ad55;
-      color: #080808;
-      border-color: #d6ad55;
-    }
+.avatar {
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  background: #242424;
+  border: 3px solid #d6ad55;
+  margin: -41px auto 12px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: bold;
+  color: #d6ad55;
+}
 
-    .creator-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
+.creator-info {
+  text-align: center;
+  padding: 0 15px 20px;
+}
 
-    .creator-card {
-      background: #111;
-      border: 1px solid #29251c;
-      border-radius: 12px;
-      overflow: hidden;
-      transition: .3s;
-    }
+.creator-info h3 {
+  font-size: 18px;
+  margin-bottom: 7px;
+}
 
-    .creator-card:hover {
-      transform: translateY(-6px);
-      border-color: #b58b3d;
-    }
+.category {
+  color: #d6ad55;
+  font-size: 12px;
+  margin-bottom: 13px;
+}
 
-    .cover {
-      height: 125px;
-      background: linear-gradient(135deg, #473619, #17120a);
-    }
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  color: #aaa;
+  font-size: 13px;
+  margin-bottom: 17px;
+}
 
-    .creator-info {
-      padding: 0 20px 22px;
-      text-align: center;
-    }
+.profile-btn {
+  display: inline-block;
+  text-decoration: none;
+  background: #d6ad55;
+  color: #080808;
+  padding: 10px 22px;
+  border-radius: 22px;
+  font-weight: bold;
+  font-size: 13px;
+}
 
-    .avatar {
-      width: 92px;
-      height: 92px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #111;
-      margin-top: -47px;
-      background: #222;
-    }
+.profile-btn:hover {
+  background: #f0cf83;
+}
 
-    .creator-info h3 {
-      margin-top: 12px;
-      font-size: 20px;
-    }
+.empty {
+  display: none;
+  color: #aaa;
+  text-align: center;
+  padding: 30px;
+}
 
-    .category {
-      color: #d6ad55;
-      font-size: 12px;
-      margin-top: 7px;
-    }
+.about {
+  margin: 35px 7%;
+  padding: 35px;
+  border: 1px solid #39301e;
+  border-radius: 15px;
+  background: #111;
+  text-align: center;
+}
 
-    .bio {
-      color: #999;
-      font-size: 13px;
-      line-height: 1.6;
-      margin: 13px 0;
-      min-height: 42px;
-    }
+.about h2 {
+  color: #d6ad55;
+  margin-bottom: 15px;
+}
 
-    .stats {
-      display: flex;
-      justify-content: center;
-      gap: 28px;
-      margin: 17px 0;
-    }
+.about p {
+  color: #aaa;
+  line-height: 1.8;
+  max-width: 750px;
+  margin: auto;
+}
 
-    .stats strong {
-      display: block;
-      font-size: 17px;
-      color: #d6ad55;
-    }
+footer {
+  border-top: 1px solid #292929;
+  text-align: center;
+  padding: 25px 15px;
+  color: #777;
+  font-size: 13px;
+}
 
-    .stats small {
-      color: #888;
-      font-size: 11px;
-    }
+footer span {
+  color: #d6ad55;
+}
 
-    .profile-btn {
-      display: block;
-      padding: 12px;
-      border: 1px solid #d6ad55;
-      border-radius: 5px;
-      color: #d6ad55;
-      font-size: 13px;
-      font-weight: bold;
-      transition: .3s;
-    }
+@media(max-width: 600px) {
+  header {
+    padding: 18px 5%;
+  }
 
-    .profile-btn:hover {
-      background: #d6ad55;
-      color: #080808;
-    }
+  .logo {
+    font-size: 23px;
+  }
 
-    .about {
-      margin-top: 75px;
-      padding: 40px;
-      background: #111;
-      border: 1px solid #29251c;
-      border-radius: 12px;
-      text-align: center;
-    }
+  nav a {
+    margin-left: 10px;
+    font-size: 12px;
+  }
 
-    .about h2 {
-      color: #d6ad55;
-      margin-bottom: 15px;
-    }
+  .hero h1 {
+    font-size: 31px;
+  }
 
-    .about p {
-      color: #aaa;
-      line-height: 1.8;
-      max-width: 700px;
-      margin: auto;
-    }
+  .section {
+    padding: 28px 5%;
+  }
 
-    footer {
-      border-top: 1px solid #252015;
-      padding: 28px 15px;
-      text-align: center;
-      color: #777;
-      font-size: 12px;
-    }
+  .creators-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
 
-    footer span {
-      color: #d6ad55;
-    }
+  .creator-info h3 {
+    font-size: 15px;
+  }
 
-    .empty {
-      display: none;
-      color: #aaa;
-      text-align: center;
-      padding: 30px;
-      grid-column: 1 / -1;
-    }
+  .stats {
+    gap: 10px;
+    font-size: 11px;
+  }
 
-    @media (max-width: 850px) {
-      .creator-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 600px) {
-      header {
-        padding: 0 5%;
-      }
-
-      nav {
-        gap: 12px;
-      }
-
-      nav a {
-        font-size: 12px;
-      }
-
-      .logo {
-        font-size: 21px;
-      }
-
-      .container {
-        width: 90%;
-      }
-
-      .creator-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .search-box {
-        max-width: 100%;
-      }
-
-      .about {
-        padding: 28px 20px;
-      }
-    }
-  </style>
+  .profile-btn {
+    padding: 9px 15px;
+    font-size: 12px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <a href="index.html" class="logo">NEXORA.</a>
+<header>
+  <div class="logo">NEXORA<span>.</span></div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#discover">Discover</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
 
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="#creators">Discover</a>
-      <a href="#about">About</a>
-    </nav>
-  </header>
+<section class="hero" id="home">
+  <h1>Discover the <span>Creators</span></h1>
+  <p>
+    Explore the world of creators, discover new personalities
+    and follow the people who inspire you.
+  </p>
 
-  <section class="hero">
-    <div class="hero-tag">THE WORLD OF CREATORS</div>
-    <h1>Discover <span>Greatness.</span></h1>
-    <p>
-      Explore inspiring creators, discover unique content
-      and connect with the people shaping the digital world.
-    </p>
-    <a href="#creators" class="discover-btn">Explore Creators</a>
-  </section>
+  <div class="search-box">
+    <input type="text" id="searchInput"
+      placeholder="Search creators...">
+  </div>
+</section>
 
-  <main class="container" id="creators">
+<section class="section" id="discover">
+  <h2 class="section-title">Explore <span>Categories</span></h2>
 
-    <div class="section-heading">
-      <h2>Featured <span>Creators</span></h2>
-      <input
-        type="search"
-        id="searchInput"
-        class="search-box"
-        placeholder="Search creators..."
-        aria-label="Search creators"
-      >
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="art">Art</button>
+    <button class="filter-btn" data-filter="fashion">Fashion Models</button>
+    <button class="filter-btn" data-filter="adult">Adult Stars</button>
+    <button class="filter-btn" data-filter="lifestyle">Lifestyle</button>
+  </div>
+
+  <h2 class="section-title">Featured <span>Creators</span></h2>
+
+  <div class="creators-grid" id="creatorsGrid">
+
+    <div class="creator-card" data-category="art" data-name="alex morgan">
+      <div class="cover">N</div>
+      <div class="avatar">AM</div>
+      <div class="creator-info">
+        <h3>Alex Morgan</h3>
+        <div class="category">Art Creator</div>
+        <div class="stats">
+          <span>125K Followers</span>
+          <span>48 Posts</span>
+        </div>
+        <a href="creator-one.html" class="profile-btn">View Profile</a>
+      </div>
     </div>
 
-    <div class="filters">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="art">Art</button>
-      <button class="filter-btn" data-filter="fashion">Fashion</button>
-      <button class="filter-btn" data-filter="lifestyle">Lifestyle</button>
+    <div class="creator-card" data-category="fashion" data-name="sophia rose">
+      <div class="cover">N</div>
+      <div class="avatar">SR</div>
+      <div class="creator-info">
+        <h3>Sophia Rose</h3>
+        <div class="category">Fashion Model</div>
+        <div class="stats">
+          <span>98K Followers</span>
+          <span>62 Posts</span>
+        </div>
+        <a href="creator-two.html" class="profile-btn">View Profile</a>
+      </div>
     </div>
 
-    <div class="creator-grid" id="creatorGrid">
-
-      <!-- CREATOR 1 -->
-      <article class="creator-card" data-category="art" data-name="alex morgan">
-        <div class="cover"></div>
-        <div class="creator-info">
-          <img
-            class="avatar"
-            src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300"
-            alt="Alex Morgan"
-          >
-          <h3>Alex Morgan</h3>
-          <div class="category">ART CREATOR</div>
-          <p class="bio">Digital artist creating unique visual experiences.</p>
-
-          <div class="stats">
-            <div><strong>125K</strong><small>Followers</small></div>
-            <div><strong>48</strong><small>Posts</small></div>
-          </div>
-
-          <a href="creator-one.html" class="profile-btn">View Profile</a>
+    <div class="creator-card" data-category="lifestyle" data-name="daniel white">
+      <div class="cover">N</div>
+      <div class="avatar">DW</div>
+      <div class="creator-info">
+        <h3>Daniel White</h3>
+        <div class="category">Lifestyle</div>
+        <div class="stats">
+          <span>76K Followers</span>
+          <span>35 Posts</span>
         </div>
-      </article>
-
-      <!-- CREATOR 2 -->
-      <article class="creator-card" data-category="fashion" data-name="sophia rose">
-        <div class="cover"></div>
-        <div class="creator-info">
-          <img
-            class="avatar"
-            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300"
-            alt="Sophia Rose"
-          >
-          <h3>Sophia Rose</h3>
-          <div class="category">FASHION CREATOR</div>
-          <p class="bio">Fashion, beauty and lifestyle inspiration.</p>
-
-          <div class="stats">
-            <div><strong>98K</strong><small>Followers</small></div>
-            <div><strong>62</strong><small>Posts</small></div>
-          </div>
-
-          <a href="creator-two.html" class="profile-btn">View Profile</a>
-        </div>
-      </article>
-
-      <!-- CREATOR 3 -->
-      <article class="creator-card" data-category="lifestyle" data-name="daniel white">
-        <div class="cover"></div>
-        <div class="creator-info">
-          <img
-            class="avatar"
-            src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300"
-            alt="Daniel White"
-          >
-          <h3>Daniel White</h3>
-          <div class="category">LIFESTYLE CREATOR</div>
-          <p class="bio">Sharing lifestyle, travel and daily inspiration.</p>
-
-          <div class="stats">
-            <div><strong>76K</strong><small>Followers</small></div>
-            <div><strong>35</strong><small>Posts</small></div>
-          </div>
-
-          <a href="creator-three.html" class="profile-btn">View Profile</a>
-        </div>
-      </article>
-
-      <p class="empty" id="emptyMessage">No creators found.</p>
-
+        <a href="creator-three.html" class="profile-btn">View Profile</a>
+      </div>
     </div>
 
-    <section class="about" id="about">
-      <h2>About NEXORA</h2>
-      <p>
-        NEXORA is a creator discovery platform built to showcase
-        talent, creativity and digital influence. Explore profiles,
-        discover inspiring people and find your next favorite creator.
-      </p>
-    </section>
+    <div class="creator-card" data-category="fashion" data-name="maya laurent">
+      <div class="cover">N</div>
+      <div class="avatar">ML</div>
+      <div class="creator-info">
+        <h3>Maya Laurent</h3>
+        <div class="category">Fashion Model</div>
+        <div class="stats">
+          <span>Demo Profile</span>
+          <span>0 Posts</span>
+        </div>
+        <a href="#" class="profile-btn">Coming Soon</a>
+      </div>
+    </div>
 
-  </main>
+    <div class="creator-card" data-category="adult" data-name="ava stone">
+      <div class="cover">N</div>
+      <div class="avatar">AS</div>
+      <div class="creator-info">
+        <h3>Ava Stone</h3>
+        <div class="category">Adult Entertainment</div>
+        <div class="stats">
+          <span>Demo Profile</span>
+          <span>0 Posts</span>
+        </div>
+        <a href="#" class="profile-btn">Coming Soon</a>
+      </div>
+    </div>
 
-  <footer>
-    © 2026 <span>NEXORA</span>. All rights reserved.
-  </footer>
+  </div>
 
-  <script>
-    const searchInput = document.getElementById("searchInput");
-    const filterButtons = document.querySelectorAll(".filter-btn");
-    const cards = document.querySelectorAll(".creator-card");
-    const emptyMessage = document.getElementById("emptyMessage");
+  <div class="empty" id="emptyMessage">
+    No creators found in this category.
+  </div>
+</section>
 
-    let activeFilter = "all";
+<section class="about" id="about">
+  <h2>About NEXORA</h2>
+  <p>
+    NEXORA is a creator discovery platform built to explore
+    different creative worlds. Discover fashion models,
+    artists, lifestyle personalities and adult entertainment
+    public figures through informational profiles and
+    non-explicit content.
+  </p>
+</section>
 
-    function updateCreators() {
-      const search = searchInput.value.toLowerCase().trim();
-      let visibleCount = 0;
+<footer>
+  © 2026 <span>NEXORA</span>. All Rights Reserved.
+</footer>
 
-      cards.forEach(card => {
-        const name = card.dataset.name;
-        const category = card.dataset.category;
+<script>
+const searchInput = document.getElementById("searchInput");
+const filterButtons = document.querySelectorAll(".filter-btn");
+const cards = document.querySelectorAll(".creator-card");
+const emptyMessage = document.getElementById("emptyMessage");
 
-        const matchesSearch = name.includes(search);
-        const matchesFilter =
-          activeFilter === "all" || category === activeFilter;
+let activeFilter = "all";
 
-        const visible = matchesSearch && matchesFilter;
+function updateCreators() {
+  const search = searchInput.value.toLowerCase().trim();
+  let visibleCount = 0;
 
-        card.style.display = visible ? "" : "none";
+  cards.forEach(card => {
+    const name = card.dataset.name;
+    const category = card.dataset.category;
 
-        if (visible) visibleCount++;
-      });
+    const matchesSearch = name.includes(search);
+    const matchesFilter =
+      activeFilter === "all" || category === activeFilter;
 
-      emptyMessage.style.display =
-        visibleCount === 0 ? "block" : "none";
-    }
+    const visible = matchesSearch && matchesFilter;
 
-    searchInput.addEventListener("input", updateCreators);
+    card.style.display = visible ? "" : "none";
 
-    filterButtons.forEach(button => {
-      button.addEventListener("click", () => {
-        filterButtons.forEach(btn => btn.classList.remove("active"));
+    if (visible) visibleCount++;
+  });
 
-        button.classList.add("active");
-        activeFilter = button.dataset.filter;
+  emptyMessage.style.display =
+    visibleCount === 0 ? "block" : "none";
+}
 
-        updateCreators();
-      });
-    });
-  </script>
+searchInput.addEventListener("input", updateCreators);
+
+filterButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    filterButtons.forEach(btn =>
+      btn.classList.remove("active")
+    );
+
+    button.classList.add("active");
+    activeFilter = button.dataset.filter;
+    updateCreators();
+  });
+});
+</script>
 
 </body>
 </html>
