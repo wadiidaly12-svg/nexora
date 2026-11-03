@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alex Morgan | NEXORA</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:#090909;color:#fff;font-family:Arial,sans-serif}
+    header{padding:20px 7%;border-bottom:1px solid #292929;display:flex;justify-content:space-between;align-items:center}
+    .logo{color:#d6ad55;font-size:25px;font-weight:bold;letter-spacing:3px;text-decoration:none}
+    .back{color:#d6ad55;text-decoration:none}
+    .cover{height:230px;background:linear-gradient(120deg,#30230d,#080808 70%);border-bottom:1px solid #4b391b}
+    .profile{max-width:1000px;margin:-65px auto 35px;padding:0 20px;position:relative}
+    .avatar{width:125px;height:125px;border:4px solid #d6ad55;border-radius:50%;object-fit:cover;background:#222}
+    h1{margin:15px 0 8px;font-size:29px}
+    .verified{color:#d6ad55;font-size:15px}
+    .bio{color:#bbb;line-height:1.7;max-width:600px;margin:12px 0}
+    .stats{display:flex;gap:30px;margin:20px 0}
+    .stats strong{color:#d6ad55;font-size:21px;display:block}
+    .stats span{color:#aaa;font-size:13px}
+    .actions{display:flex;gap:12px;margin:20px 0}
+    button{padding:12px 25px;border-radius:5px;border:1px solid #d6ad55;background:#d6ad55;color:#080808;font-weight:bold}
+    .secondary{background:transparent;color:#d6ad55}
+    .section{max-width:1000px;margin:35px auto;padding:0 20px}
+    h2{font-size:22px;margin-bottom:20px;color:#d6ad55}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .grid img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:7px}
+    footer{text-align:center;padding:30px;color:#777;border-top:1px solid #292929;margin-top:45px}
+    @media(max-width:600px){
+      .cover{height:180px}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .stats{gap:20px}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="index.html">NEXORA</a>
+  <a class="back" href="index.html">← Back to Discover</a>
+</header>
+
+<div class="cover"></div>
+
+<main>
+  <section class="profile">
+    <img class="avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400" alt="Alex Morgan">
+    <h1>Alex Morgan <span class="verified">✓</span></h1>
+    <p class="bio">Digital creator sharing lifestyle, photography and creative moments. Welcome to my NEXORA profile.</p>
+
+    <div class="stats">
+      <div><strong>125K</strong><span>Followers</span></div>
+      <div><strong>48</strong><span>Posts</span></div>
+      <div><strong>12K</strong><span>Likes</span></div>
+    </div>
+
+    <div class="actions">
+      <button onclick="alert('Demo feature — coming soon!')">Follow</button>
+      <button class="secondary" onclick="alert('Demo feature — subscriptions coming soon!')">Subscribe</button>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Creator Posts</h2>
+    <div class="grid">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=500" alt="Post 1">
+      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500" alt="Post 2">
+      <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500" alt="Post 3">
+      <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=500" alt="Post 4">
+      <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=500" alt="Post 5">
+      <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=500" alt="Post 6">
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 NEXORA. All rights reserved.</p>
+  <p>Demo creator profile — sample content for preview only.</p>
+</footer>
+
+</body>
+      </html>
