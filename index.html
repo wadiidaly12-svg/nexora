@@ -1,69 +1,157 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
 <title>NEXORA | Discover Creators</title>
 <style>
+:root{--gold:#d6ad55;--bg:#080808;--panel:#141414;--muted:#aaa}
 *{box-sizing:border-box}
-body{margin:0;background:#090909;color:#fff;font-family:Arial,sans-serif}
-header{padding:20px 6%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #29220e}
-.logo{color:#d6ad55;font-size:27px;font-weight:bold;letter-spacing:3px}
-nav a{color:#ddd;text-decoration:none;margin:0 9px;font-size:14px}
-.hero{text-align:center;padding:75px 20px 55px;background:linear-gradient(135deg,#17130a,#090909)}
-.hero h1{font-size:42px;margin:0 0 15px}
-.gold{color:#d6ad55}
-.hero p{color:#aaa;line-height:1.7}
-.search{margin-top:20px;padding:14px;width:90%;max-width:430px;border:1px solid #b58b37;border-radius:30px;background:#111;color:white}
-section{padding:35px 6%}
-h2{color:#d6ad55}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:18px}
-.card{background:#151515;border:1px solid #302817;border-radius:13px;overflow:hidden;text-align:center;padding-bottom:16px}
-.cover{height:115px;background:linear-gradient(135deg,#493819,#17120a)}
-.avatar{width:65px;height:65px;border-radius:50%;background:#292318;border:3px solid #d6ad55;margin:-32px auto 10px;position:relative}
-.card h3{margin:7px}
-.card p{color:#aaa;font-size:13px}
-.follow{background:#c69b43;color:#080808;border:0;padding:9px 19px;border-radius:20px;font-weight:bold}
-footer{text-align:center;padding:25px;color:#888;border-top:1px solid #29220e;font-size:13px}
-@media(max-width:600px){header{flex-direction:column;gap:15px}nav a{margin:0 5px;font-size:12px}.hero h1{font-size:32px}}
+body{margin:0;background:var(--bg);color:#fff;font-family:Arial,sans-serif}
+header{height:75px;padding:0 7%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #292929;position:sticky;top:0;background:#090909;z-index:5}
+.logo{font-size:27px;font-weight:900;letter-spacing:3px;color:var(--gold)}
+nav a{color:#ddd;text-decoration:none;margin-left:22px;font-size:14px}
+nav a:hover{color:var(--gold)}
+.hero{text-align:center;padding:75px 18px 55px;background:radial-gradient(ellipse at top,#332713 0%,#111 48%,#080808 80%)}
+.hero h1{font-size:clamp(34px,7vw,58px);margin:0 0 15px}
+.hero h1 span{color:var(--gold)}
+.hero p{color:#bbb;line-height:1.7;max-width:600px;margin:0 auto 25px}
+.search{max-width:480px;margin:auto;display:flex;background:#1a1a1a;border:1px solid #574522;border-radius:30px;padding:5px}
+.search input{flex:1;min-width:0;background:none;border:0;outline:0;color:white;padding:12px}
+.search button{background:var(--gold);border:0;border-radius:25px;padding:0 20px;font-weight:bold}
+.section{padding:35px 7%;max-width:1250px;margin:auto}
+.section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
+.section-title h2{font-size:23px;margin:0}
+.section-title span{color:var(--gold);font-size:13px}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+.filters button{background:#171717;color:#ddd;border:1px solid #333;padding:9px 17px;border-radius:22px}
+.filters button.active,.filters button:hover{background:var(--gold);color:#111;border-color:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.creator{background:var(--panel);border:1px solid #292929;border-radius:13px;overflow:hidden;transition:.2s}
+.creator:hover{transform:translateY(-4px);border-color:var(--gold)}
+.cover{height:135px;background:linear-gradient(120deg,#403018,#151515)}
+.profile{padding:0 17px 18px;position:relative}
+.avatar{width:75px;height:75px;border-radius:50%;object-fit:cover;border:3px solid var(--gold);margin-top:-38px;background:#222}
+.creator h3{margin:10px 0 5px}
+.creator p{color:var(--muted);font-size:13px;line-height:1.5;min-height:38px}
+.stats{display:flex;gap:18px;color:#ddd;font-size:12px;margin:15px 0}
+.stats b{color:var(--gold)}
+.view{display:block;text-align:center;text-decoration:none;background:#211b10;color:var(--gold);border:1px solid #594624;padding:10px;border-radius:7px;font-weight:bold}
+.view:hover{background:var(--gold);color:#111}
+.empty{display:none;color:#aaa;text-align:center;padding:30px}
+footer{text-align:center;border-top:1px solid #292929;padding:30px 15px;color:#999;font-size:13px;margin-top:40px}
+footer strong{color:var(--gold)}
+@media(max-width:750px){header{padding:0 5%;height:auto;min-height:65px;flex-wrap:wrap}nav{width:100%;display:flex;justify-content:space-between;padding:0 0 13px}nav a{margin:0;font-size:12px}.grid{grid-template-columns:repeat(2,1fr)}.section{padding:28px 5%}}
+@media(max-width:450px){.grid{grid-template-columns:1fr}.hero{padding-top:55px}}
 </style>
 </head>
 <body>
 <header>
-<div class="logo">Ⓝ NEXORA</div>
+<div class="logo">NEXORA</div>
 <nav>
-<a href="#">Home</a>
+<a href="#home">Home</a>
 <a href="#discover">Discover</a>
 <a href="#top">Top Creators</a>
 <a href="#about">About</a>
 </nav>
 </header>
 
-<div class="hero">
-<h1>Discover <span class="gold">Creators</span></h1>
-<p>Explore talent. Discover creativity. Connect with the world.</p>
-<input class="search" type="search" placeholder="Search creators...">
-</div>
-
-<section id="discover">
-<h2>✨ Discover Creators</h2>
-<div class="grid">
-<div class="card"><div class="cover"></div><div class="avatar"></div><h3>Creator One</h3><p>12.5K Followers</p><button class="follow">View Profile</button></div>
-<div class="card"><div class="cover"></div><div class="avatar"></div><h3>Creator Two</h3><p>8.2K Followers</p><button class="follow">View Profile</button></div>
-<div class="card"><div class="cover"></div><div class="avatar"></div><h3>Creator Three</h3><p>5.7K Followers</p><button class="follow">View Profile</button></div>
+<section class="hero" id="home">
+<h1>Discover <span>Creators.</span></h1>
+<p>Explore inspiring profiles, discover new talent and connect with creators from around the world.</p>
+<div class="search">
+<input id="searchInput" type="search" placeholder="Search creators...">
+<button onclick="searchCreators()">Search</button>
 </div>
 </section>
 
-<section id="top">
-<h2>🏆 Top Creators</h2>
-<p style="color:#aaa">Discover the most popular creators on NEXORA.</p>
+<section class="section" id="discover">
+<div class="section-title">
+<h2>Discover Creators</h2>
+<span>EXPLORE THE COMMUNITY</span>
+</div>
+<div class="filters">
+<button class="active" onclick="filterCreators('all',this)">All</button>
+<button onclick="filterCreators('art',this)">Art</button>
+<button onclick="filterCreators('fashion',this)">Fashion</button>
+<button onclick="filterCreators('lifestyle',this)">Lifestyle</button>
+</div>
+<div class="grid" id="creatorGrid">
+
+<article class="creator" data-category="art" data-name="alex morgan">
+<div class="cover"></div>
+<div class="profile">
+<img class="avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200" alt="Alex Morgan">
+<h3>Alex Morgan ✦</h3>
+<p>Digital artist sharing creative ideas and visual stories.</p>
+<div class="stats"><span><b>125K</b> Followers</span><span><b>48</b> Posts</span></div>
+<a class="view" href="#about">View Profile</a>
+</div></article>
+
+<article class="creator" data-category="fashion" data-name="sophia rose">
+<div class="cover"></div>
+<div class="profile">
+<img class="avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200" alt="Sophia Rose">
+<h3>Sophia Rose ✦</h3>
+<p>Fashion inspiration, style and everyday elegance.</p>
+<div class="stats"><span><b>98K</b> Followers</span><span><b>62</b> Posts</span></div>
+<a class="view" href="#about">View Profile</a>
+</div></article>
+
+<article class="creator" data-category="lifestyle" data-name="daniel white">
+<div class="cover"></div>
+<div class="profile">
+<img class="avatar" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200" alt="Daniel White">
+<h3>Daniel White ✦</h3>
+<p>Travel, lifestyle and moments worth sharing.</p>
+<div class="stats"><span><b>76K</b> Followers</span><span><b>35</b> Posts</span></div>
+<a class="view" href="#about">View Profile</a>
+</div></article>
+
+</div>
+<div class="empty" id="emptyMessage">No creators found.</div>
 </section>
 
-<section id="about">
-<h2>About NEXORA</h2>
-<p style="color:#aaa;line-height:1.8">NEXORA is a creator discovery platform designed to connect people with inspiring talent and creative communities.</p>
+<section class="section" id="top">
+<div class="section-title"><h2>Top Creators</h2><span>RANKED BY FOLLOWERS</span></div>
+<p style="color:#aaa">Discover popular creators and explore the profiles that are growing their communities.</p>
 </section>
 
-<footer>© 2026 NEXORA. All rights reserved.</footer>
+<section class="section" id="about">
+<div class="section-title"><h2>About NEXORA</h2></div>
+<p style="color:#aaa;line-height:1.8">NEXORA is a creator discovery concept designed to bring creative people and inspiring content closer together. Discover talent, explore profiles and be part of a growing community.</p>
+</section>
+
+<footer>
+<strong>NEXORA</strong><br><br>
+Discover. Connect. Create.<br><br>
+© 2026 NEXORA. All rights reserved.
+</footer>
+
+<script>
+function filterCreators(category,button){
+document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active'));
+button.classList.add('active');
+document.querySelectorAll('.creator').forEach(card=>{
+card.style.display=category==='all'||card.dataset.category===category?'block':'none';
+});
+document.getElementById('emptyMessage').style.display='none';
+}
+function searchCreators(){
+const value=document.getElementById('searchInput').value.toLowerCase().trim();
+let count=0;
+document.querySelectorAll('.creator').forEach(card=>{
+const match=card.dataset.name.includes(value)||card.innerText.toLowerCase().includes(value);
+card.style.display=match?'block':'none';
+if(match)count++;
+});
+document.getElementById('emptyMessage').style.display=count?'none':'block';
+}
+document.getElementById('searchInput').addEventListener('keydown',e=>{
+if(e.key==='Enter')searchCreators();
+});
+</script>
 </body>
-  </html>
+</html>
